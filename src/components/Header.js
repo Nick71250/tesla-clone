@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import MenuIcon from '@mui/icons-material/Menu';
 
 function Header() {
 	return (
@@ -16,6 +17,7 @@ function Header() {
 			<RightMenu>
 				<a href="#">Shop</a>
 				<a href="#">Tesla Account</a>
+				<CustomMenu />
 			</RightMenu>
 		</Container>
 	)
@@ -28,6 +30,7 @@ const Container = styled.div`
 	position: fixed;
 	display: flex;
 	align-items: center;
+	justify-content: space-between; //Необходимо для того, чтобы правая часть меню (Shop Tesla Account and Burger) не притягивались к лого при размере экрана менее 768px
 	padding: 0 20px;
 	top: 0;
 	left: 0;
@@ -45,6 +48,10 @@ const Menu = styled.div`
 		padding: 0 10px;
 		flex-wrap: nowrap;
 	}
+
+	@media(max-width: 768px) {
+		display: none;
+	}
 `
 
 const RightMenu = styled.div`
@@ -54,7 +61,10 @@ const RightMenu = styled.div`
 	a {
 		font-weight: 600;
 		text-transform: uppercase;
-		padding: 0 10px;
-		flex-wrap: nowrap;
+		margin-right: 10px;
 	}
+`
+
+const CustomMenu = styled(MenuIcon)`
+	cursor: pointer;
 `
